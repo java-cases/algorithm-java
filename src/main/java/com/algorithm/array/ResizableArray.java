@@ -2,7 +2,7 @@ package com.algorithm.array;
 
 public class ResizableArray<E> extends AbstractArray<E> implements Array<E> {
 
-    public static final int DEFAULT_CAPACITY=10;
+    public static final int DEFAULT_CAPACITY = 10;
 
     public ResizableArray(int capacity) {
         super(capacity);
@@ -33,25 +33,6 @@ public class ResizableArray<E> extends AbstractArray<E> implements Array<E> {
         size++;
     }
 
-    //删除指定位置元素
-    @Override
-    public E remove(int index) {
-        if (size == items.length / 2) {
-            resize(items.length / 2);
-        }
-
-        checkIndexRange(index, "Remove failed, index is illegal.");
-
-        E ret = (E) items[index];
-
-        for (int i = index + 1; i < size; i++) {
-            items[i - 1] = items[i];
-        }
-
-        size--;
-        return ret;
-    }
-
     //动态调整数组大小
     private void resize(int newCapacity) {
         if (newCapacity < 0 || newCapacity < size) {
@@ -65,6 +46,25 @@ public class ResizableArray<E> extends AbstractArray<E> implements Array<E> {
         }
 
         items = newData;
+    }
+
+    //删除指定位置元素
+    @Override
+    public E remove(int index) {
+        if (size == items.length / 2) {
+            resize(items.length / 2);
+        }
+
+        checkIndexRange(index, "Remove failed, index is illegal.");
+
+        E ret = items[index];
+
+        for (int i = index + 1; i < size; i++) {
+            items[i - 1] = items[i];
+        }
+
+        size--;
+        return ret;
     }
 
     @Override

@@ -43,7 +43,7 @@ public abstract class AbstractArray<E> implements Array<E> {
     public E get(int index) {
         checkIndexRange(index, "Get failed, index is illegal.");
 
-        return (E) items[index];
+        return items[index];
     }
 
     protected void checkIndexRange(int index, String msg) {
@@ -53,10 +53,13 @@ public abstract class AbstractArray<E> implements Array<E> {
     }
 
     //设置index位置元素值为e
-    public void set(int index, E e) {
+    public E set(int index, E e) {
         checkIndexRange(index, "Set failed, index is illegal.");
 
+        E old = items[index];
         items[index] = e;
+
+        return old;
     }
 
     public boolean contains(E e) {
@@ -74,7 +77,7 @@ public abstract class AbstractArray<E> implements Array<E> {
     }
 
     //查找数组中是否有元素e,有就返回下标，没有就返回-1
-    public int find(E e) {
+    public int indexOf(E e) {
         for (int i = 0; i < size; i++) {
             if (items[i] == e) {
                 return i;
@@ -99,8 +102,8 @@ public abstract class AbstractArray<E> implements Array<E> {
         return remove(size - 1);
     }
 
-    public void removeElement(E e) {
-        int index = find(e);
+    public void remove(E e) {
+        int index = indexOf(e);
 
         if (index != -1) {
             remove(index);

@@ -37,7 +37,7 @@ public class FixedSizeArrayTest {
 
         assertThat(array.remove(0), Matchers.is("0"));
 
-        assertThat(array.find("0"), Matchers.is(-1));
+        assertThat(array.indexOf("0"), Matchers.is(-1));
     }
 
     @Test(expected = IllegalArgumentException.class)

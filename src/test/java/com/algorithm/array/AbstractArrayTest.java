@@ -38,7 +38,7 @@ public class AbstractArrayTest {
         array.addFirst("1");
         assertThat(array.isEmpty(), Matchers.is(false));
 
-        array.removeElement("1");
+        array.remove("1");
         assertThat(array.isEmpty(), Matchers.is(true));
     }
 
@@ -149,10 +149,10 @@ public class AbstractArrayTest {
         array.addLast("0");
         array.addLast(null);
 
-        assertThat(array.find("0"), Matchers.is(0));
-        assertThat(array.find(null), Matchers.is(1));
+        assertThat(array.indexOf("0"), Matchers.is(0));
+        assertThat(array.indexOf(null), Matchers.is(1));
 
-        assertThat(array.find("1"), Matchers.is(-1));
+        assertThat(array.indexOf("1"), Matchers.is(-1));
     }
 
     @Test
@@ -202,14 +202,14 @@ public class AbstractArrayTest {
         Array<String> array = Array.fixed();
         array.addLast("0");
 
-        array.removeElement("0");
+        array.remove("0");
         assertThat(array.size(), Matchers.is(0));
     }
 
     @Test
     public void removeElementFromEmpty() {
         Array<String> array = Array.fixed();
-        array.removeElement("0");
+        array.remove("0");
     }
 
     @Test

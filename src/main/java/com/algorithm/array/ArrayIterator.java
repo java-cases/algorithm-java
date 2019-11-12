@@ -6,7 +6,7 @@ import java.util.Objects;
 public class ArrayIterator<E> implements Iterator<E> {
 
     private E[] items;
-    private int position = 0;
+    private int cursor = 0;
 
     public ArrayIterator(E[] items) {
         Objects.requireNonNull(items);
@@ -16,11 +16,11 @@ public class ArrayIterator<E> implements Iterator<E> {
 
     @Override
     public boolean hasNext() {
-        return position < items.length;
+        return cursor < items.length;
     }
 
     @Override
     public E next() {
-        return items[position++];
+        return items[cursor++];
     }
 }

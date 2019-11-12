@@ -2,7 +2,7 @@ package com.algorithm.array;
 
 public class FixedSizeArray<E> extends AbstractArray<E> implements Array<E> {
 
-    public static final int DEFAULT_CAPACITY=10;
+    public static final int DEFAULT_CAPACITY = 10;
 
     public FixedSizeArray(int capacity) {
         super(capacity);
@@ -42,7 +42,7 @@ public class FixedSizeArray<E> extends AbstractArray<E> implements Array<E> {
 
         checkIndexRange(index, "Remove failed, index is illegal.");
 
-        E ret = (E) items[index];
+        E ret = items[index];
 
         for (int i = index + 1; i < size; i++) {
             items[i - 1] = items[i];
