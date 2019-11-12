@@ -1,6 +1,6 @@
-package com.algorithm.list;
+package com.algorithm.stack;
 
-import com.algorithm.stack.Stack;
+import com.algorithm.linked.LinkedList;
 
 public class LinkedListStack<E> implements Stack<E> {
 
@@ -21,8 +21,8 @@ public class LinkedListStack<E> implements Stack<E> {
     }
 
     @Override
-    public void push(E e) {
-        linkedList.addFirst(e);
+    public void push(E element) {
+        linkedList.addFirst(element);
     }
 
     @Override
@@ -33,13 +33,5 @@ public class LinkedListStack<E> implements Stack<E> {
     @Override
     public E peek() {
         return linkedList.getFirst();
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Stack:top ");
-        builder.append(linkedList);
-        return builder.toString();
     }
 }

@@ -1,4 +1,4 @@
-package com.algorithm.list;
+package com.algorithm.stack;
 
 import com.algorithm.stack.LinkedListStack;
 import com.algorithm.stack.Stack;

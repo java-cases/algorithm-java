@@ -1,11 +1,12 @@
 package com.algorithm.stack;
 
 public interface Stack<E> {
+
     int size();
 
     boolean isEmpty();
 
-    void push(E e);
+    void push(E element);
 
     E pop();
 
