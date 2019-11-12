@@ -14,7 +14,7 @@ public class ArrayQueue<E> implements Queue<E> {
     }
 
     @Override
-    public int getSize() {
+    public int size() {
         return array.size();
     }
 
@@ -24,8 +24,8 @@ public class ArrayQueue<E> implements Queue<E> {
     }
 
     @Override
-    public void enqueue(E e) {
-        array.addLast(e);
+    public void enqueue(E element) {
+        array.addLast(element);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class ArrayQueue<E> implements Queue<E> {
     }
 
     @Override
-    public E getFront() {
+    public E element() {
         return array.get(0);
     }
 

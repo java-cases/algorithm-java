@@ -24,7 +24,7 @@ public class LoopQueue<E> implements Queue<E> {
     }
 
     @Override
-    public int getSize() {
+    public int size() {
         return size;
     }
 
@@ -34,13 +34,13 @@ public class LoopQueue<E> implements Queue<E> {
     }
 
     @Override
-    public void enqueue(E e) {
+    public void enqueue(E element) {
         //入队操作，先判断队列是否满了
         if ((tailIndex + 1) % items.length == frontIndex) {
             resize(getCapacity() * 2);
         }
 
-        items[tailIndex] = e;
+        items[tailIndex] = element;
         tailIndex = (tailIndex + 1) % items.length;
 
         size++;
@@ -65,7 +65,7 @@ public class LoopQueue<E> implements Queue<E> {
     }
 
     @Override
-    public E getFront() {
+    public E element() {
         if (isEmpty()) {
             throw new IllegalArgumentException("con not dequeue from empty queue");
         }

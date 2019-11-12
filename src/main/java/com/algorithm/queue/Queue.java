@@ -1,13 +1,13 @@
 package com.algorithm.queue;
 
 public interface Queue<E> {
-    void enqueue(E e);
+    void enqueue(E element);
 
     E dequeue();
 
-    E getFront();
+    E element();
 
-    int getSize();
+    int size();
 
     boolean isEmpty();
 }
