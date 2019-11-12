@@ -1,4 +1,4 @@
-package com.algorithm.list;
+package com.algorithm.linked;
 
 public class LinkedNode<E> {
 

@@ -1,4 +1,4 @@
-package com.algorithm.list;
+package com.algorithm.linked;
 
 import java.util.NoSuchElementException;
 
@@ -58,7 +58,7 @@ public class LinkedList<E> {
     }
 
     /**
-     * Inserts the specified element at the beginning of this list.
+     * Inserts the specified element at the beginning of this linked.
      *
      * @param element the element to add
      */
@@ -67,7 +67,7 @@ public class LinkedList<E> {
     }
 
     /**
-     * Appends the specified element to the end of this list.
+     * Appends the specified element to the end of this linked.
      *
      * <p>This method is equivalent to {@link #add}.
      *
