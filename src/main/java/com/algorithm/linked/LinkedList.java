@@ -212,7 +212,7 @@ public class LinkedList<E> {
     }
 
     /**
-     * Links e as first element.
+     * Links element as first element.
      */
     private void linkFirst(E element) {
         final Node<E> f = first;
@@ -229,7 +229,7 @@ public class LinkedList<E> {
     }
 
     /**
-     * Links e as getLast element.
+     * Links element as getLast element.
      */
     void linkLast(E element) {
         final Node<E> l = last;
@@ -246,7 +246,7 @@ public class LinkedList<E> {
     }
 
     /**
-     * Inserts element e before non-null Node succ.
+     * Inserts element element before non-null Node succ.
      */
     void linkBefore(E element, Node<E> succ) {
         // assert succ != null;
