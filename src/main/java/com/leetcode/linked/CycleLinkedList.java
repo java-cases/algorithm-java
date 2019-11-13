@@ -1,0 +1,50 @@
+package com.leetcode.linked;
+
+import java.util.HashSet;
+
+/**
+ * leetcode-141
+ */
+public class CycleLinkedList {
+
+    public static boolean hasCycle(final ListNode head) {
+        if (head == null || head.next == null) {
+            return false;
+        }
+
+        ListNode fast = head;
+        ListNode slow = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static <E> ListNode<E> findCycle(final ListNode<E> head) {
+        if (head == null || head.next == null) {
+            return null;
+        }
+
+        HashSet<ListNode> nodeSet = new HashSet<>();
+        nodeSet.add(head);
+
+        ListNode current = head; //当前节点
+
+        while (current != null && current.next != null) {
+            current = current.next;
+
+            if (!nodeSet.add(current)) {
+                return current;
+            }
+        }
+
+        return null;
+    }
+}

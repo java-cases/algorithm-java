@@ -1,16 +1,16 @@
 package com.algorithm.linked;
 
-public class LinkedNode<E> {
+public class LinkNode<E> {
 
     E item;
-    LinkedNode<E> next;
-    LinkedNode<E> prev;
+    LinkNode<E> next;
+    LinkNode<E> prev;
 
-    LinkedNode(E element) {
+    LinkNode(E element) {
         this(null, element, null);
     }
 
-    LinkedNode(LinkedNode<E> prev, E element, LinkedNode<E> next) {
+    LinkNode(LinkNode<E> prev, E element, LinkNode<E> next) {
         this.item = element;
         this.next = next;
         this.prev = prev;

@@ -35,7 +35,7 @@ public class TrieNode {
     public String toString() {
         return "TrieNode{" +
                 "isWord=" + isWord +
-                ", next.keySet=" + next.keySet() +
+                ", link.keySet=" + next.keySet() +
                 '}';
     }
 }

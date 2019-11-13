@@ -8,15 +8,15 @@ public class LinkedList<E> {
 
     /**
      * Pointer to first node.
-     * Invariant: (first == null && last == null) ||
+     * Invariant: (first == null && getLast == null) ||
      * (first.prev == null && first.item != null)
      */
     transient Node<E> first;
 
     /**
-     * Pointer to last node.
-     * Invariant: (first == null && last == null) ||
-     * (last.next == null && last.item != null)
+     * Pointer to getLast node.
+     * Invariant: (first == null && getLast == null) ||
+     * (getLast.link == null && getLast.item != null)
      */
     transient Node<E> last;
 
@@ -229,7 +229,7 @@ public class LinkedList<E> {
     }
 
     /**
-     * Links e as last element.
+     * Links e as getLast element.
      */
     void linkLast(E element) {
         final Node<E> l = last;
@@ -288,10 +288,10 @@ public class LinkedList<E> {
     }
 
     /**
-     * Unlinks non-null last node l.
+     * Unlinks non-null getLast node l.
      */
     private E unlinkLast(Node<E> l) {
-        // assert l == last && l != null;
+        // assert l == getLast && l != null;
 
         final E element = l.item;
         final Node<E> prev = l.prev;
