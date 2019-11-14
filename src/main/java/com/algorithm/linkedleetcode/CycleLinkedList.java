@@ -1,6 +1,7 @@
-package com.leetcode.linked;
+package com.algorithm.linkedleetcode;
 
 import java.util.HashSet;
+import java.util.Set;
 
 /**
  * leetcode-141
@@ -32,7 +33,7 @@ public class CycleLinkedList {
             return null;
         }
 
-        HashSet<ListNode> nodeSet = new HashSet<>();
+        Set<ListNode> nodeSet = new HashSet<>();
         nodeSet.add(head);
 
         ListNode current = head; //当前节点

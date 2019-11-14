@@ -1,4 +1,4 @@
-package com.leetcode.linked;
+package com.algorithm.linkedleetcode;
 
 import org.hamcrest.Matchers;
 import org.junit.Test;

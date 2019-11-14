@@ -58,7 +58,7 @@ public class LinkedList<E> {
     }
 
     /**
-     * Inserts the specified element at the beginning of this linked.
+     * Inserts the specified element at the beginning of this linkedleetcode.
      *
      * @param element the element to add
      */
@@ -67,7 +67,7 @@ public class LinkedList<E> {
     }
 
     /**
-     * Appends the specified element to the end of this linked.
+     * Appends the specified element to the end of this linkedleetcode.
      *
      * <p>This method is equivalent to {@link #add}.
      *

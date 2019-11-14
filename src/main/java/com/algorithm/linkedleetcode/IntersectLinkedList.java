@@ -1,6 +1,4 @@
-package com.leetcode.linked;
-
-import java.util.Set;
+package com.algorithm.linkedleetcode;
 
 /**
  * leetcode-160

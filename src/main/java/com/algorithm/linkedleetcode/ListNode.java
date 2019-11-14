@@ -1,4 +1,4 @@
-package com.leetcode.linked;
+package com.algorithm.linkedleetcode;
 
 public class ListNode<E> {
 
