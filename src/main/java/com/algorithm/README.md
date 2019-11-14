@@ -5,7 +5,7 @@
 - [链表](./linked)
 - [链表和递归](./linkedleetcode)
 - [二叉搜索树](./binarysearchtree)
-- [集合和映射]
+- [集合](./set)和[映射]
 - [优先队列和堆]
 - [线段树]
 - [Trie](./trie)
