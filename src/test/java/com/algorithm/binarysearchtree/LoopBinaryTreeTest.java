@@ -2,10 +2,10 @@ package com.algorithm.binarysearchtree;
 
 import org.junit.Test;
 
-public class RecursiveBinaryTreeTest {
+public class LoopBinaryTreeTest {
 
     private BinaryTree<Integer> buildTree() {
-        BinaryTree<Integer> tree = new RecursiveBinaryTree<>();
+        BinaryTree<Integer> tree = new LoopBinaryTree<>();
         tree.add(10);
         tree.add(1);
         tree.add(2);
@@ -27,7 +27,6 @@ public class RecursiveBinaryTreeTest {
         tree.add(1);
         return tree;
     }
-
 
     @Test
     public void preorder() {

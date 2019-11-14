@@ -1,15 +1,15 @@
-package com.algorithm.linked;
+package com.leetcode.linked;
 
 import org.hamcrest.Matchers;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class ListNodeTest {
+public class LinkNodeTest {
 
     @Test
     public void next() {
-        ListNode<Integer> node = new ListNode<>(1);
+        LinkNode<Integer> node = new LinkNode<>(1);
         node.link(2).link(3).link(4).link(5);
 
         assertThat(node.item, Matchers.equalTo(1));
@@ -26,10 +26,10 @@ public class ListNodeTest {
 
     @Test
     public void nextMultiLists() {
-        ListNode<Integer> node = new ListNode<>(1);
+        LinkNode<Integer> node = new LinkNode<>(1);
         node.link(2).link(3);
 
-        ListNode<Integer> other = new ListNode<>(4);
+        LinkNode<Integer> other = new LinkNode<>(4);
         other.link(5);
 
         node.link(other);
@@ -48,7 +48,7 @@ public class ListNodeTest {
 
     @Test
     public void length() {
-        ListNode<Integer> node = new ListNode<>(1);
+        LinkNode<Integer> node = new LinkNode<>(1);
         node.link(2).link(3).link(4).link(5);
 
         assertThat(node.length(), Matchers.equalTo(5));
@@ -56,13 +56,13 @@ public class ListNodeTest {
 
     @Test
     public void lengthMultiLists() {
-        ListNode<Integer> node1 = new ListNode<>(1);
+        LinkNode<Integer> node1 = new LinkNode<>(1);
         node1.link(2).link(3);
 
-        ListNode<Integer> node2 = new ListNode<>(1);
+        LinkNode<Integer> node2 = new LinkNode<>(1);
         node2.link(2).link(3).link(4).link(5);
 
-        ListNode<Integer> other = new ListNode<>(6);
+        LinkNode<Integer> other = new LinkNode<>(6);
         other.link(7).link(8);
 
         node1.link(other);
@@ -74,7 +74,7 @@ public class ListNodeTest {
 
     @Test
     public void last() {
-        ListNode<Integer> node = new ListNode<>(1);
+        LinkNode<Integer> node = new LinkNode<>(1);
         node.link(2).link(3).link(4).link(5);
 
         assertThat(node.getLast().item, Matchers.equalTo(5));
@@ -82,7 +82,7 @@ public class ListNodeTest {
 
     @Test
     public void get() {
-        ListNode<Integer> node = new ListNode<>(1);
+        LinkNode<Integer> node = new LinkNode<>(1);
         node.link(2).link(3).link(4).link(5);
 
         assertThat(node.get(0).item, Matchers.equalTo(1));

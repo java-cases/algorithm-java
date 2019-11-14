@@ -21,7 +21,7 @@ public class ListNode<E> {
 
     @Override
     public String toString() {
-        return "ListNode{" +
+        return "LinkNode{" +
                 "item=" + item +
                 '}';
     }
