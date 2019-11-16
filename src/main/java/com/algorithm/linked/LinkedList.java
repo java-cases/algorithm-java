@@ -60,7 +60,7 @@ public class LinkedList<E> {
     /**
      * Inserts the specified element at the beginning of this linkedleetcode.
      *
-     * @param element the element to add
+     * @param element the element to put
      */
     public void addFirst(E element) {
         linkFirst(element);
@@ -71,7 +71,7 @@ public class LinkedList<E> {
      *
      * <p>This method is equivalent to {@link #add}.
      *
-     * @param element the element to add
+     * @param element the element to put
      */
     public void addLast(E element) {
         linkLast(element);
@@ -364,7 +364,7 @@ public class LinkedList<E> {
 
     /**
      * Tells if the argument is the index of a valid position for an
-     * iterator or an add operation.
+     * iterator or an put operation.
      */
     private boolean isPositionIndex(int index) {
         return index >= 0 && index <= size;

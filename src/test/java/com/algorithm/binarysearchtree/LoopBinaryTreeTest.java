@@ -31,25 +31,25 @@ public class LoopBinaryTreeTest {
     @Test
     public void preorder() {
         BinaryTree<Integer> tree = buildTree();
-        tree.preorder(x -> System.out.println(x));
+        System.out.println(tree.preorder());
     }
 
     @Test
     public void inorder() {
         BinaryTree<Integer> tree = buildTree();
-        tree.inorder(x -> System.out.println(x));
+        System.out.println(tree.inorder());
     }
 
     @Test
     public void postorder() {
         BinaryTree<Integer> tree = buildTree();
-        tree.postorder(x -> System.out.println(x));
+        System.out.println(tree.postorder());
     }
 
     @Test
     public void levelOrder() {
         BinaryTree<Integer> tree = buildTree();
-        tree.levelOrder(x -> System.out.println(x));
+        System.out.println(tree.levelOrder());
     }
 
 }

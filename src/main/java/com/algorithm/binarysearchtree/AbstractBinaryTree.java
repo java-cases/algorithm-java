@@ -1,8 +1,10 @@
 package com.algorithm.binarysearchtree;
 
-import java.util.function.Consumer;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
 
-public abstract class AbstractBinaryTree<E extends Comparable<E>> implements BinaryTree<E>{
+public abstract class AbstractBinaryTree<E extends Comparable<E>> implements BinaryTree<E> {
 
     protected BinaryNode<E> root;
     protected int size;
@@ -68,21 +70,71 @@ public abstract class AbstractBinaryTree<E extends Comparable<E>> implements Bin
         }
     }
 
+    @Override
+    public List<E> find(Predicate<E> filter) {
+        List<E> outItems = new ArrayList<>();
+        find(root, filter, outItems);
+
+        return outItems;
+    }
+
+    private void find(final BinaryNode<E> node,
+                      final Predicate<E> filter, final List<E> outItems) {
+        if (node == null) {
+            return;
+        }
+
+        if (filter.test(node.element)) {
+            outItems.add(node.element);
+        }
+
+        find(node.left, filter, outItems);
+        find(node.right, filter, outItems);
+    }
+
     //BST的前序遍历
     @Override
-    public abstract void preorder(Consumer<E> action);
+    public List<E> preorder() {
+        List<E> outItems = new ArrayList<>();
+        preorder(root, outItems);
+
+        return outItems;
+    }
+
+    protected abstract void preorder(final BinaryNode<E> node, final List<E> outItems);
 
     //BST的中序遍历
     @Override
-    public abstract void inorder(Consumer<E> action);
+    public List<E> inorder() {
+        List<E> outItems = new ArrayList<>();
+        inorder(root, outItems);
+
+        return outItems;
+    }
+
+    protected abstract void inorder(final BinaryNode<E> node, final List<E> outItems);
 
     //BST的后序遍历
     @Override
-    public abstract void postorder(Consumer<E> action);
+    public List<E> postorder() {
+        List<E> outItems = new ArrayList<>();
+        postorder(root, outItems);
+
+        return outItems;
+    }
+
+    protected abstract void postorder(final BinaryNode<E> node, final List<E> outItems);
 
     //BST的层序遍历
     @Override
-    public abstract void levelOrder(Consumer<E> action);
+    public List<E> levelOrder() {
+        List<E> outItems = new ArrayList<>();
+        levelOrder(root, outItems);
+
+        return outItems;
+    }
+
+    protected abstract void levelOrder(final BinaryNode<E> node, final List<E> outItems);
 
     //寻找BST中的最小元素
     @Override
@@ -157,6 +209,17 @@ public abstract class AbstractBinaryTree<E extends Comparable<E>> implements Bin
 
         node.right = removeMax(node.right);
         return node;
+    }
+
+    @Override
+    public int remove(Predicate<E> filter) {
+        List<E> list = this.find(filter);
+
+        for (int i = 0; i < list.size(); i++) {
+            this.remove(list.get(i));
+        }
+
+        return list.size();
     }
 
     //删除BST中任意元素

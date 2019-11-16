@@ -1,9 +1,6 @@
 package com.algorithm.binarysearchtree;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
-import java.util.function.Consumer;
+import java.util.*;
 
 public class LoopBinaryTree<E extends Comparable<E>> extends AbstractBinaryTree<E>
         implements BinaryTree<E> {
@@ -12,9 +9,9 @@ public class LoopBinaryTree<E extends Comparable<E>> extends AbstractBinaryTree<
         super();
     }
 
-    //枚举命令，GO表示访问元素，ACTION表示处理元素
+    //枚举命令，GO表示访问元素，SELECT表示处理元素
     private enum Command {
-        GO, ACTION
+        GO, SELECT
     }
 
     private class StackNode {
@@ -27,13 +24,8 @@ public class LoopBinaryTree<E extends Comparable<E>> extends AbstractBinaryTree<
         }
     }
 
-    //BST的前序遍历
     @Override
-    public void preorder(Consumer<E> action) {
-        preorder(root, action);
-    }
-
-    private void preorder(final BinaryNode<E> node, Consumer<E> action) {
+    protected void preorder(final BinaryNode<E> node, final List<E> outItems) {
         if (node == null) {
             return;
         }
@@ -47,8 +39,8 @@ public class LoopBinaryTree<E extends Comparable<E>> extends AbstractBinaryTree<
             BinaryNode<E> popNode = stackNode.node;
             Command command = stackNode.command;
 
-            if (command == Command.ACTION) {
-                action.accept(popNode.element);
+            if (command == Command.SELECT) {
+                outItems.add(popNode.element);
                 continue;
             }
 
@@ -60,17 +52,12 @@ public class LoopBinaryTree<E extends Comparable<E>> extends AbstractBinaryTree<
                 stack.push(new StackNode(popNode.left, Command.GO));
             }
 
-            stack.push(new StackNode(popNode, Command.ACTION));
+            stack.push(new StackNode(popNode, Command.SELECT));
         }
     }
 
-    //BST的中序遍历
     @Override
-    public void inorder(Consumer<E> action) {
-        inorder(root, action);
-    }
-
-    private void inorder(final BinaryNode<E> node, Consumer<E> action) {
+    protected void inorder(final BinaryNode<E> node, final List<E> outItems) {
         if (node == null) {
             return;
         }
@@ -83,8 +70,8 @@ public class LoopBinaryTree<E extends Comparable<E>> extends AbstractBinaryTree<
             BinaryNode<E> popNode = stackNode.node;
             Command command = stackNode.command;
 
-            if (command == Command.ACTION) {
-                action.accept(popNode.element);
+            if (command == Command.SELECT) {
+                outItems.add(popNode.element);
                 continue;
             }
 
@@ -92,7 +79,7 @@ public class LoopBinaryTree<E extends Comparable<E>> extends AbstractBinaryTree<
                 stack.push(new StackNode(popNode.right, Command.GO));
             }
 
-            stack.push(new StackNode(popNode, Command.ACTION));
+            stack.push(new StackNode(popNode, Command.SELECT));
 
             if (popNode.left != null) {
                 stack.push(new StackNode(popNode.left, Command.GO));
@@ -100,13 +87,8 @@ public class LoopBinaryTree<E extends Comparable<E>> extends AbstractBinaryTree<
         }
     }
 
-    //BST的后序遍历
     @Override
-    public void postorder(Consumer<E> action) {
-        postorder(root, action);
-    }
-
-    private void postorder(final BinaryNode<E> node, Consumer<E> action) {
+    protected void postorder(final BinaryNode<E> node, final List<E> outItems) {
         if (node == null) {
             return;
         }
@@ -119,12 +101,12 @@ public class LoopBinaryTree<E extends Comparable<E>> extends AbstractBinaryTree<
             BinaryNode<E> popNode = stackNode.node;
             Command command = stackNode.command;
 
-            if (command == Command.ACTION) {
-                action.accept(popNode.element);
+            if (command == Command.SELECT) {
+                outItems.add(popNode.element);
                 continue;
             }
 
-            stack.push(new StackNode(popNode, Command.ACTION));
+            stack.push(new StackNode(popNode, Command.SELECT));
 
             if (popNode.right != null) {
                 stack.push(new StackNode(popNode.right, Command.GO));
@@ -136,20 +118,15 @@ public class LoopBinaryTree<E extends Comparable<E>> extends AbstractBinaryTree<
         }
     }
 
-    //BST的层序遍历
     @Override
-    public void levelOrder(Consumer<E> action) {
-        levelOrder(root, action);
-    }
-
-    private void levelOrder(final BinaryNode<E> node, Consumer<E> action) {
+    protected void levelOrder(final BinaryNode<E> node, final List<E> outItems) {
         Queue<BinaryNode<E>> queue = new LinkedList<>();
         queue.add(node);
 
         while (!queue.isEmpty()) {
             BinaryNode<E> popNode = queue.remove();
 
-            action.accept(popNode.element);
+            outItems.add(popNode.element);
 
             if (popNode.left != null) {
                 queue.add(popNode.left);

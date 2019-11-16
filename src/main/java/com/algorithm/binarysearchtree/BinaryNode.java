@@ -1,6 +1,6 @@
 package com.algorithm.binarysearchtree;
 
-public class BinaryNode<E extends Comparable<E>> {
+public class BinaryNode<E> {
 
     public E element;
     public BinaryNode<E> left;

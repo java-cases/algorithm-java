@@ -110,8 +110,29 @@ public class AbstractBinaryTreeTest {
     }
 
     @Test
+    public void find() {
+        BinaryTree<Integer> tree = buildTree();
+
+        assertThat(tree.find(x -> x > 1).size(), Matchers.equalTo(14));
+        assertThat(tree.find(x -> x > 10).size(), Matchers.equalTo(5));
+    }
+
+    @Test
+    public void removeWithFilter() {
+        BinaryTree<Integer> tree = buildTree();
+        assertThat(tree.remove(x -> x > 1), Matchers.equalTo(14));
+        assertThat(tree.size(), Matchers.equalTo(1));
+
+        tree = buildTree();
+        assertThat(tree.remove(x -> x > 10), Matchers.equalTo(5));
+        assertThat(tree.size(), Matchers.equalTo(10));
+    }
+
+    @Test
     public void printTree() {
         BinaryTree<Integer> tree = buildTree();
         System.out.println(tree.toString());
     }
+
+
 }

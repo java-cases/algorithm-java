@@ -1,6 +1,6 @@
 package com.algorithm.binarysearchtree;
 
-import java.util.function.Consumer;
+import java.util.List;
 
 public class RecursiveBinaryTree<E extends Comparable<E>> extends AbstractBinaryTree<E>
         implements BinaryTree<E> {
@@ -8,78 +8,58 @@ public class RecursiveBinaryTree<E extends Comparable<E>> extends AbstractBinary
     public RecursiveBinaryTree() {
     }
 
-    //BST的前序遍历
     @Override
-    public void preorder(Consumer<E> action) {
-        preorder(root, action);
-    }
-
-    private void preorder(final BinaryNode<E> node, Consumer<E> action) {
+    protected void preorder(final BinaryNode<E> node, final List<E> outItems) {
         if (node == null) {
             return;
         }
 
-        action.accept(node.element);
+        outItems.add(node.element);
 
-        preorder(node.left, action);
-        preorder(node.right, action);
+        preorder(node.left, outItems);
+        preorder(node.right, outItems);
     }
 
-    //BST的中序遍历
     @Override
-    public void inorder(Consumer<E> action) {
-        inorder(root, action);
-    }
-
-    private void inorder(final BinaryNode<E> node, Consumer<E> action) {
+    protected void inorder(final BinaryNode<E> node, final List<E> outItems) {
         if (node == null) {
             return;
         }
 
-        inorder(node.left, action);
+        inorder(node.left, outItems);
 
-        action.accept(node.element);
+        outItems.add(node.element);
 
-        inorder(node.right, action);
+        inorder(node.right, outItems);
     }
 
-    //BST的后序遍历
     @Override
-    public void postorder(Consumer<E> action) {
-        postorder(root, action);
-    }
-
-    private void postorder(final BinaryNode<E> node, Consumer<E> action) {
+    protected void postorder(final BinaryNode<E> node, final List<E> outItems) {
         if (node == null) {
             return;
         }
 
-        postorder(node.left, action);
-        postorder(node.right, action);
+        postorder(node.left, outItems);
+        postorder(node.right, outItems);
 
-        action.accept(node.element);
+        outItems.add(node.element);
     }
 
     @Override
-    public void levelOrder(Consumer<E> action) {
-        action.accept(root.element);
-        levelOrder(root, action);
-    }
-
-    private void levelOrder(final BinaryNode<E> node, Consumer<E> action) {
+    protected void levelOrder(final BinaryNode<E> node, final List<E> outItems) {
         if (node == null) {
             return;
         }
 
         if (node.left != null) {
-            action.accept(node.left.element);
+            outItems.add(node.left.element);
         }
 
         if (node.right != null) {
-            action.accept(node.right.element);
+            outItems.add(node.right.element);
         }
 
-        levelOrder(node.left, action);
-        levelOrder(node.right, action);
+        levelOrder(node.left, outItems);
+        levelOrder(node.right, outItems);
     }
 }

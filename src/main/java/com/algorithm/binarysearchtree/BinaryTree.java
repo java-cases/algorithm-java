@@ -1,8 +1,10 @@
 package com.algorithm.binarysearchtree;
 
+import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
-public interface BinaryTree<E extends Comparable<E>> {
+public interface BinaryTree<E> {
     int size();
 
     boolean isEmpty();
@@ -10,20 +12,22 @@ public interface BinaryTree<E extends Comparable<E>> {
     //向BST中添加新元素e
     void add(E element);
 
+    List<E> find(Predicate<E> filter);
+
     //查看BST中是否包含元素e
     boolean contains(E element);
 
     //BST的前序遍历
-    void preorder(Consumer<E> action);
+    List<E> preorder();
 
     //BST的中序遍历
-    void inorder(Consumer<E> action);
+    List<E> inorder();
 
     //BST的后序遍历
-    void postorder(Consumer<E> action);
+    List<E> postorder();
 
     //BST的层序遍历
-    void levelOrder(Consumer<E> action);
+    List<E> levelOrder();
 
     //寻找BST中的最小元素
     E min();
@@ -36,6 +40,8 @@ public interface BinaryTree<E extends Comparable<E>> {
 
     //删除BST中的最大值
     E removeMax();
+
+    int remove(Predicate<E> filter);
 
     //删除BST中任意元素
     void remove(E element);
